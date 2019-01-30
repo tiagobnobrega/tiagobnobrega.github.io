@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({ email, title, subtitle, avatarUrl, social }) => (
-  <div className="section started">
+export default ({ email, title, subtitle, avatarUrl, social, id }) => (
+  <div className="section started" id={id}>
     <div className="st-box">
       <div className="st-bts">
         <a href={`mailto:${email}`} className="btn_animated">

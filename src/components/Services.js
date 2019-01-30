@@ -18,7 +18,7 @@ const ServiceRow = (row, ind) => (
   </div>
 );
 
-export default ({ services = [] }) => {
+export default ({ services = [], id }) => {
   if (services.length === 0) return null;
   const servicesClone = [...services];
   let pair = servicesClone.splice(-2);
@@ -29,7 +29,7 @@ export default ({ services = [] }) => {
   }
   if (pair.length > 0) rows.push(pair);
   return (
-    <div className="section service" id="service-section">
+    <div className="section service" id={id}>
       <div className="title">Services</div>
       {rows.map(ServiceRow)}
     </div>

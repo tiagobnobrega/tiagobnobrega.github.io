@@ -43,12 +43,13 @@ export default ({ birthday, citizenship, address, phones, email, job, title, par
                 <strong>
                   <span>Phone:</span>
                 </strong>{' '}
-                {phones.map(phone => (
-                  <React.Fragment key={phone}>
-                    <a href={`tel:${phone.replace(/[0-9\s()\-+]/g, '')}`}>{phone}</a>
-                    <br />
-                  </React.Fragment>
-                ))}
+                {phones &&
+                  phones.map(phone => (
+                    <React.Fragment key={phone}>
+                      <a href={`tel:${phone.replace(/[0-9\s()\-+]/g, '')}`}>{phone}</a>
+                      <br />
+                    </React.Fragment>
+                  ))}
               </li>
               <li>
                 <strong>
@@ -64,9 +65,7 @@ export default ({ birthday, citizenship, address, phones, email, job, title, par
             <p>
               <strong>{title}</strong>
             </p>
-            {paragraphs.map((paragraph, ind) => (
-              <p key={`about-${ind}`}>{paragraph}</p>
-            ))}
+            {paragraphs && paragraphs.map((paragraph, ind) => <p key={`about-${ind}`}>{paragraph}</p>)}
           </div>
           <div className="bts">
             <a href="#" className="btn btn_animated">

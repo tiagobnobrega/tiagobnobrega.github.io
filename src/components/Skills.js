@@ -33,7 +33,7 @@ const SkillRow = (row, ind) => (
   </div>
 );
 
-export default ({ skills = [] }) => {
+export default ({ skills = [], id }) => {
   if (skills.length === 0) return null;
   const skillsClone = [...skills];
   skillsClone.reverse();
@@ -47,7 +47,7 @@ export default ({ skills = [] }) => {
   if (pair.length > 0) rows.push(pair);
 
   return (
-    <div className="section skills" id="skills-section">
+    <div className="section skills" id={id}>
       <div className="title">Skills</div>
       {rows.map(SkillRow)}
     </div>

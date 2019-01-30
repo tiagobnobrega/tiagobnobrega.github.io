@@ -1,15 +1,6 @@
 import React from 'react';
-import Preloader from '../components/Preloader';
-import Hero from '../components/Hero';
-import Header from '../components/Header';
-import Started from '../components/Started';
-import About from '../components/About';
-import Skills from '../components/Skills';
-import Experiences from '../components/Experiences';
-import Services from '../components/Services';
-import Education from '../components/Education';
-
-import $v from '../variables';
+import { Preloader, Hero, Header, Started, About, Skills, Experiences, Education } from '../components';
+import siteSchema from '../site-schema';
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -56,46 +47,24 @@ export default class Index extends React.Component {
         {/* Preloader */}
         <Preloader visible={!loaded} />
 
-        {/* Started Background */}
         <Hero />
 
-        {/* Header */}
         <Header
           links={[
             { href: 'home-section', label: 'Home' },
-            { href: 'about-section', label: 'About' },
-            { href: 'skills-section', label: 'Skills' },
-            { href: 'experience-section', label: 'Experience' },
-            { href: 'service-section', label: 'Services' },
-            { href: 'education-section', label: 'Education' },
-            { href: 'works-section', label: 'Portifolio' },
-            { href: 'clients-section', label: 'Clients' },
-            { href: 'blog-section', label: 'Blog' },
-            { href: 'contact-section', label: 'Contact Me' },
+            ...siteSchema.map(section => ({
+              href: section.id,
+              label: section.menuEntry,
+            })),
           ]}
         />
 
-        {/* Container */}
         <div className="container">
-          {/* Started */}
-          <Started {...$v} />
-
-          {/* Wrapper */}
           <div className="wrapper">
-            {/* Section About */}
-            <About {...$v.about} />
-
-            {/* Section Skills */}
-            <Skills {...$v} />
-
-            {/* Experience */}
-            <Experiences {...$v} />
-
-            {/* Service */}
-            {/*<Services {...$v} />*/}
-
-            {/* Section Education */}
-            <Education {...$v} />
+            {siteSchema.map(section => {
+              const SectionComponent = section.component;
+              return <SectionComponent {...section.props} id={section.id} />;
+            })}
           </div>
 
           {/* Footer */}
