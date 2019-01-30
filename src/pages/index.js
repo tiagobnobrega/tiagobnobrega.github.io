@@ -92,7 +92,7 @@ export default class Index extends React.Component {
             <Experiences {...$v} />
 
             {/* Service */}
-            <Services {...$v} />
+            {/*<Services {...$v} />*/}
 
             {/* Section Education */}
             <Education {...$v} />
