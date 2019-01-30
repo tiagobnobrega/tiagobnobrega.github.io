@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "tiagobnobrega-cv",
+  "description": null,
+  "icons": {
+    "60": "/icons-2b88cc8d59fe51f21eec318ed6a8f8dd/firefox_app_60x60.png",
+    "128": "/icons-2b88cc8d59fe51f21eec318ed6a8f8dd/firefox_app_128x128.png",
+    "512": "/icons-2b88cc8d59fe51f21eec318ed6a8f8dd/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Tiago Nobrega",
+    "url": "http://tiagobnobrega.github.io"
+  }
+}
