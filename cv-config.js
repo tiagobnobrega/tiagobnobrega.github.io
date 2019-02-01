@@ -1,26 +1,31 @@
-import { Started, About, Skills, Experiences, Education } from './components';
+import { SECTION_TYPES as TYPES } from './src/constants';
 
 export default [
   {
-    component: Started,
+    type: TYPES.STARTED,
     id: 'started-section',
     menuEntry: null,
     props: {
       avatarUrl: 'https://s.gravatar.com/avatar/be0092cca8e839e1c83b492dfb630d7c?s=200',
       email: 'tiago.bnobrega@gmail.com',
+      site: 'http://tiagobnobrega.github.io',
       title: 'Tiago Nobrega',
       subtitle: 'Solution Architect | Full Stack Developer',
       social: [
-        { iconClass: 'icon ion ion-social-facebook', url: 'https://www.facebook.com/tiago.nobrega.18' },
-        { iconClass: 'icon ion ion-social-github', url: 'https://github.com/tiagobnobrega' },
-        { iconClass: 'icon ion ion-social-twitter', url: 'https://twitter.com/tbnobrega' },
-        { iconClass: 'icon ion ion-social-skype', url: 'skype:tiagobnobrega' },
+        {
+          iconClass: 'icon ion ion-social-facebook',
+          url: 'https://www.facebook.com/tiago.nobrega.18',
+          printed: '/tiago.nobrega.18',
+        },
+        { iconClass: 'icon ion ion-social-github', url: 'https://github.com/tiagobnobrega', printed: '/tiagobnobrega' },
+        { iconClass: 'icon ion ion-social-twitter', url: 'https://twitter.com/tbnobrega', printed: '@tbnobrega' },
+        { iconClass: 'icon ion ion-social-skype', url: 'skype:tiagobnobrega', printed: 'tiagobnobrega' },
       ],
     },
   },
 
   {
-    component: About,
+    type: TYPES.ABOUT,
     id: 'about-section',
     menuEntry: 'About',
     props: {
@@ -41,7 +46,7 @@ export default [
   },
 
   {
-    component: Skills,
+    type: TYPES.SKILLS,
     id: 'skills-section',
     menuEntry: 'Skills',
     props: {
@@ -110,7 +115,7 @@ export default [
   },
 
   {
-    component: Experiences,
+    type: TYPES.EXPERIENCE,
     id: 'experiences-section',
     menuEntry: 'Experiences',
     props: {
@@ -118,6 +123,7 @@ export default [
         {
           label: '2014-2018',
           title: 'Ninebee',
+          location: 'Rio de Janeiro',
           subtitle: 'CTO',
           paragraphs: [
             'Solution architect for many projects in several languages. Implemented archetype using Spring Framework and ReactJs for single page apps.',
@@ -132,6 +138,7 @@ export default [
         {
           label: '2013-2014',
           title: 'wdev (Ebix)',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Full Stack Developer',
           paragraphs: [
             'Lotus Notes client and web application development. ',
@@ -141,6 +148,7 @@ export default [
         {
           label: '2012-2013',
           title: 'Lojas Americanas SA',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Java Developer',
           paragraphs: [
             'Worked developing new applications using Spring framework. Also defined java development architecture used and created maven archetypes for the development team.',
@@ -149,6 +157,7 @@ export default [
         {
           label: '2011-2012',
           title: 'wdev (Ebix)',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Lotus Notes Developer',
           paragraphs: [
             'Lotus Notes client and web application development. ',
@@ -158,6 +167,7 @@ export default [
         {
           label: '2010-2011',
           title: 'ANP – Nation Oil Agency',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Lotus Notes Developer',
           paragraphs: [
             'Worked developing new Doimno application both for Lotus Notes Client R7 and R8 and web access. Data modeling for ORACLE Database. Writing Queries in PL/SQL. Developed application using Dojo toolkit javascript framework.',
@@ -166,6 +176,7 @@ export default [
         {
           label: '2009-2010',
           title: 'Quatro Seniors Informática',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Lotus Notes Developer',
           paragraphs: [
             'Lotus Notes client and web application development.',
@@ -177,6 +188,7 @@ export default [
         {
           label: '2007-2009',
           title: 'Running',
+          location: 'Rio de Janeiro',
           subtitle: 'Senior Lotus Notes Developer',
           paragraphs: [
             'Lotus Notes client and web application development.',
@@ -186,6 +198,7 @@ export default [
         {
           label: '2005-2006',
           title: 'Some Companies',
+          location: 'Rio de Janeiro',
           subtitle: 'Lotus Notes Developer',
           paragraphs: [
             'Several past experiences with Lotus Notes on clients like: Golden Cross Insurance Brazil, Brascan Bank (BRKB), Merk Pharmaceuticals',
@@ -209,7 +222,7 @@ export default [
   // },
 
   {
-    component: Education,
+    type: TYPES.EDUCATION,
     id: 'education-section',
     menuEntry: 'Education',
     props: {

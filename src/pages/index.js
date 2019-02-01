@@ -1,6 +1,18 @@
 import React from 'react';
-import { Preloader, Hero, Header, Started, About, Skills, Experiences, Education } from '../components';
-import siteSchema from '../site-schema';
+import { Preloader, Hero, Header, Education, Experiences, Skills, About, Started, Services, Timeline } from '../components/view';
+import cvConfig from '../../cv-config';
+import '../styles/main.scss';
+import { SECTION_TYPES as TYPES } from '../constants';
+
+const viewComponents = {
+  [TYPES.EDUCATION]: Education,
+  [TYPES.EXPERIENCE]: Experiences,
+  [TYPES.SKILLS]: Skills,
+  [TYPES.ABOUT]: About,
+  [TYPES.STARTED]: Started,
+  [TYPES.SERVICES]: Services,
+  [TYPES.TIMELINE]: Timeline,
+};
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -43,7 +55,7 @@ export default class Index extends React.Component {
   render() {
     const { loaded } = this.state;
     return (
-      <div className="page" id="home-section">
+      <div className="page screen-only" id="home-section">
         {/* Preloader */}
         <Preloader visible={!loaded} />
 
@@ -52,7 +64,7 @@ export default class Index extends React.Component {
         <Header
           links={[
             { href: 'home-section', label: 'Home' },
-            ...siteSchema.map(section => ({
+            ...cvConfig.map(section => ({
               href: section.id,
               label: section.menuEntry,
             })),
@@ -61,9 +73,9 @@ export default class Index extends React.Component {
 
         <div className="container">
           <div className="wrapper">
-            {siteSchema.map(section => {
-              const SectionComponent = section.component;
-              return <SectionComponent {...section.props} id={section.id} />;
+            {cvConfig.map(section => {
+              const SectionComponent = viewComponents[section.type] || null;
+              return SectionComponent ? <SectionComponent {...section.props} id={section.id} /> : null;
             })}
           </div>
 

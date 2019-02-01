@@ -40,6 +40,12 @@ body {
 	font-weight: 300;
 }
 
+@media print {
+  .screen-only{
+    display: none !important;
+  }
+}
+
 .page {
 	position: relative;
 	overflow: hidden;

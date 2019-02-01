@@ -1,4 +1,5 @@
-import './src/styles/main.scss';
+// import './src/styles/main.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'particles.js';
 import scrollReveal from 'scrollreveal';
 

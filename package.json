@@ -38,7 +38,8 @@
     "prettier": "^1.16.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "scrollreveal": "^4.0.5"
+    "scrollreveal": "^4.0.5",
+    "@fortawesome/fontawesome-free": "^5.7.0"
   },
   "repository": {
     "type": "git",
