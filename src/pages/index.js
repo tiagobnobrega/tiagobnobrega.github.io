@@ -1,7 +1,9 @@
 import React from 'react';
 import { Preloader, Hero, Header, Education, Experiences, Skills, About, Started, Services, Timeline } from '../components/view';
+import Print from './print';
 import cvConfig from '../../cv-config';
 import '../styles/main.scss';
+import './print.scss';
 import { SECTION_TYPES as TYPES } from '../constants';
 
 const viewComponents = {
@@ -55,40 +57,43 @@ export default class Index extends React.Component {
   render() {
     const { loaded } = this.state;
     return (
-      <div className="page screen-only" id="home-section">
-        {/* Preloader */}
-        <Preloader visible={!loaded} />
+      <React.Fragment>
+        <div className="page screen-only" id="home-section">
+          {/* Preloader */}
+          <Preloader visible={!loaded} />
 
-        <Hero />
+          <Hero />
 
-        <Header
-          links={[
-            { href: 'home-section', label: 'Home' },
-            ...cvConfig.map(section => ({
-              href: section.id,
-              label: section.menuEntry,
-            })),
-          ]}
-        />
+          <Header
+            links={[
+              { href: 'home-section', label: 'Home' },
+              ...cvConfig.map(section => ({
+                href: section.id,
+                label: section.menuEntry,
+              })),
+            ]}
+          />
 
-        <div className="container">
-          <div className="wrapper">
-            {cvConfig.map(section => {
-              const SectionComponent = viewComponents[section.type] || null;
-              return SectionComponent ? <SectionComponent {...section.props} id={section.id} /> : null;
-            })}
-          </div>
-
-          {/* Footer */}
-          <footer>
-            <div className="copy">
-              <i className="ion-android-star" />
-              <i className="ion-android-star" />
-              <i className="ion-android-star" />
+          <div className="container">
+            <div className="wrapper">
+              {cvConfig.map(section => {
+                const SectionComponent = viewComponents[section.type] || null;
+                return SectionComponent ? <SectionComponent {...section.props} id={section.id} /> : null;
+              })}
             </div>
-          </footer>
+
+            {/* Footer */}
+            <footer>
+              <div className="copy">
+                <i className="ion-android-star" />
+                <i className="ion-android-star" />
+                <i className="ion-android-star" />
+              </div>
+            </footer>
+          </div>
         </div>
-      </div>
+        <Print printOnly={true} />
+      </React.Fragment>
     );
   }
 }

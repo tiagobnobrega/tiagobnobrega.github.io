@@ -1,7 +1,16 @@
 import React from 'react';
 import './print.scss';
 import cvConfig from '../../cv-config';
-import { MainAbout, MainStarted, Experiences, Education, Timeline, SidebarAbout, SidebarStarted, SidebarSkills } from '../components/print';
+import {
+  MainAbout,
+  MainStarted,
+  Experiences,
+  Education,
+  Timeline,
+  SidebarAbout,
+  SidebarStarted,
+  SidebarSkills,
+} from '../components/print';
 import { SECTION_TYPES as TYPES } from '../constants';
 
 const mainComponents = {
@@ -25,8 +34,9 @@ const sidebarComponents = {
 };
 export default class Print extends React.Component {
   render() {
+    const { printOnly = false } = this.props;
     return (
-      <div className="print">
+      <div className={`print ${printOnly && 'print-only'}`}>
         <section className="main">
           {cvConfig.map(section => {
             const SectionComponent = mainComponents[section.type] || null;
@@ -60,7 +70,6 @@ export default class Print extends React.Component {
             }
             return null;
           })}
-
         </aside>
       </div>
     );

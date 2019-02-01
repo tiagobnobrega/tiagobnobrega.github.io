@@ -19,6 +19,12 @@ $date-block-width: 0.6in;
 $main-blocks-title-icon-offset-left: -19pt;
 
 
+@media screen {
+  .print-only{
+    display: none;
+  }
+}
+
 @page  {
   size: letter portrait;
   margin: 10px 0 10px 0;
