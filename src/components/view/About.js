@@ -68,12 +68,11 @@ export default ({ birthday, citizenship, address, phones, email, job, title, par
             {paragraphs && paragraphs.map((paragraph, ind) => <p key={`about-${ind}`}>{paragraph}</p>)}
           </div>
           <div className="bts">
-            <a href="#" className="btn btn_animated">
-              <span className="circle">Download CV</span>
-            </a>
-            <a href="#" className="btn extra contact-btn btn_animated">
-              <span className="circle">Contact Me</span>
-            </a>
+            {donwloadUrl && (
+              <a href={donwloadUrl} className="btn btn_animated">
+                <span className="circle">Download CV</span>
+              </a>
+            )}
           </div>
         </div>
       </div>

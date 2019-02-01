@@ -9,7 +9,7 @@ export default ({ email, title, subtitle, avatarUrl, social, id }) => (
             <i className="icon ion ion-android-send" />
           </span>
         </a>
-        <a href={`#`} className="btn_animated left" onClick={window.print}>
+        <a href={`#`} className="btn_animated left" onClick={() => window.print()}>
           <span className="circle">
             <i className="icon fa fa-print" />
           </span>
