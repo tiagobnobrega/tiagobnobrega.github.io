@@ -33,3 +33,11 @@
 
     }
 }
+@layer components {
+    .app-section{
+        @apply min-h-[700px] w-full flex justify-center
+    }
+    .app-section > .content {
+        @apply w-full max-w-screen-2xl px-2
+    }
+}
