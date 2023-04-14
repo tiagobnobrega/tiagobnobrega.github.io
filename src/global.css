@@ -1,0 +1,35 @@
+/**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root{
+        --color-page-grad-from:55 65 81;
+        --color-page-grad-via:17 24 39;
+        --color-page-grad-to:0 0 0 ;
+        --color-header-bg:255 255 255;
+        --color-text-base: 243 244 246;
+        --color-text-muted: 199 204 213;
+        --color-brand-primary: 255 205 0;
+        --color-brand-secondary: 134 51 153;
+        --color-brand-tertiary: 0 130 203;
+    }
+
+    .space-light{
+        --color-page-grad-from:201 214 255;
+        --color-page-grad-via:201 214 255;
+        --color-page-grad-to:226 226 226 ;
+        --color-header-bg:0 0 0;
+
+        --color-text-base: 44 42 46;
+        --color-text-muted: 199 204 213;
+        --color-brand-primary: 255 205 0;
+        --color-brand-secondary: 134 51 153;
+        --color-brand-tertiary: 0 130 203;
+
+    }
+}
