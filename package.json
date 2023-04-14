@@ -25,6 +25,7 @@
     "@builder.io/qwik-city": "~0.101.0",
     "@types/eslint": "8.37.0",
     "@types/node": "^18.15.9",
+    "@types/three": "^0.150.1",
     "@typescript-eslint/eslint-plugin": "5.57.1",
     "@typescript-eslint/parser": "5.57.1",
     "autoprefixer": "^10.4.13",
@@ -41,6 +42,7 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
+    "three": "^0.151.3",
     "typed.js": "^2.0.15"
   }
 }
