@@ -22,20 +22,15 @@ export default component$(() => {
     let clock: Clock;
     let mixer: AnimationMixer;
     let actions: Record<string, AnimationAction>;
-    const api: Record<string, any> = { state: "Walking" };
+    const api: Record<string, any> = { state: "Idle" };
     let face: Object3D | undefined;
     let activeAction: AnimationAction;
     let previousAction: AnimationAction;
     function init() {
       const container = document.getElementById("hero-scene-container");
-
-      camera = new THREE.PerspectiveCamera(
-        45,
-        window.innerWidth / window.innerHeight,
-        0.25,
-        100
-      );
-      camera.position.set(-5, 3, 10);
+      const rendererDim = getRendererDimensions();
+      camera = new THREE.PerspectiveCamera(35, rendererDim.aspect, 0.5, 100);
+      camera.position.set(-5, 5, 10);
       camera.lookAt(0, 2, 0);
 
       scene = new THREE.Scene();
@@ -73,10 +68,8 @@ export default component$(() => {
 
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(
-        Math.min(window.innerWidth, 1024),
-        Math.min(window.innerHeight, 800)
-      );
+
+      renderer.setSize(rendererDim.w, rendererDim.h);
       renderer.outputEncoding = THREE.sRGBEncoding;
       if (container) {
         container.appendChild(renderer.domElement);
@@ -103,9 +96,8 @@ export default component$(() => {
       const gui = new GUI();
 
       mixer = new THREE.AnimationMixer(model);
-
+      //* building actions
       actions = {};
-
       for (let i = 0; i < animations.length; i++) {
         const clip = animations[i];
         const action = mixer.clipAction(clip);
@@ -117,43 +109,42 @@ export default component$(() => {
         }
       }
 
-      // states
-
-      const statesFolder = gui.addFolder("States");
-
+      //states
+      /*const statesFolder = gui.addFolder("States");
       const clipCtrl = statesFolder.add(api, "state").options(states);
-
       clipCtrl.onChange(function () {
+        console.log("clipCtrl.onChange:", { "api.state": api.state });
         fadeToAction(api.state, 0.5);
       });
 
-      statesFolder.open();
+      statesFolder.open();*/
 
       // emotes
 
-      const emoteFolder = gui.addFolder("Emotes");
-
-      function createEmoteCallback(name: string) {
-        api[name] = function () {
-          fadeToAction(name, 0.2);
-
-          mixer.addEventListener("finished", restoreState);
-        };
-
-        emoteFolder.add(api, name);
-      }
-
+      // const emoteFolder = gui.addFolder("Emotes");
+      //
+      // function createEmoteCallback(name: string) {
+      //   api[name] = function () {
+      //     fadeToAction(name, 0.2);
+      //
+      //     mixer.addEventListener("finished", restoreState);
+      //   };
+      //
+      //   emoteFolder.add(api, name);
+      // }
+      //
       function restoreState() {
         mixer.removeEventListener("finished", restoreState);
-
+        // @ts-ignore
+        face.morphTargetInfluences[1] = 0;
         fadeToAction(api.state, 0.2);
       }
-
-      for (let i = 0; i < emotes.length; i++) {
-        createEmoteCallback(emotes[i]);
-      }
-
-      emoteFolder.open();
+      //
+      // for (let i = 0; i < emotes.length; i++) {
+      //   createEmoteCallback(emotes[i]);
+      // }
+      //
+      // emoteFolder.open();
 
       // expressions
 
@@ -169,11 +160,20 @@ export default component$(() => {
           .add(face.morphTargetInfluences, i.toString(), 0, 1, 0.01)
           .name(expressions[i]);
       }
+      // // @ts-ignore
+      // face.updateMorphTargets();
 
-      activeAction = actions["Walking"];
+      activeAction = actions["Idle"];
       activeAction.play();
 
-      expressionFolder.open();
+      setInterval(() => {
+        fadeToAction("Wave", 0.2);
+        // @ts-ignore
+        face.morphTargetInfluences[1] = 0.5;
+        mixer.addEventListener("finished", restoreState);
+      }, 5000);
+
+      // expressionFolder.open();
     }
 
     function fadeToAction(name: string, duration: number) {
@@ -192,15 +192,20 @@ export default component$(() => {
         .play();
     }
 
+    function getRendererDimensions() {
+      const aspectArr = [400, 475];
+      const aspect = aspectArr[0] / aspectArr[1];
+      const w = Math.min(window.innerWidth, aspectArr[0]);
+      const h = w / aspect;
+      return { w, h, aspect };
+    }
+
     function onWindowResize() {
-      camera.aspect = 1024 / 800;
+      const { w, h, aspect } = getRendererDimensions();
+      camera.aspect = aspect;
       camera.updateProjectionMatrix();
 
-      //TODO: Properly handle window resize and aspect ratio
-      renderer.setSize(
-        Math.min(window.innerWidth, 1024),
-        Math.min(window.innerHeight, 800)
-      );
+      renderer.setSize(w, h);
     }
     function animate() {
       const dt = clock.getDelta();
@@ -224,9 +229,7 @@ export default component$(() => {
     });
   });
 
-  return (
-    <div class="w-full h-72 max-w-screen-lg" id="hero-scene-container"></div>
-  );
+  return <div class="flex justify-center" id="hero-scene-container"></div>;
 });
 /*
 const scene = new THREE.Scene();

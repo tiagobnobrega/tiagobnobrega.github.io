@@ -6,6 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     :root{
         --color-page-grad-from:55 65 81;
@@ -35,9 +36,9 @@
 }
 @layer components {
     .app-section{
-        @apply min-h-[700px] w-full flex justify-center
+        @apply w-full flex justify-center
     }
     .app-section > .content {
-        @apply w-full max-w-screen-2xl px-2
+        @apply w-full max-w-screen-2xl px-8
     }
 }

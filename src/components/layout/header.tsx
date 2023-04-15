@@ -9,7 +9,7 @@ export default component$(() => {
       }}
       class="w-full h-20 flex justify-center fixed"
     >
-      <div class="w-full max-w-screen-2xl z-10 px-2">
+      <div class="w-full max-w-screen-2xl z-10 px-8">
         content
         <nav>nav</nav>
       </div>

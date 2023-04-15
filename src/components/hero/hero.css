@@ -1,0 +1,84 @@
+.card-ring-3d{
+    background-color: transparent;
+    border-radius: 3px;
+    color: #fff;
+    position: relative;
+    width: 400px;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    transition: .4s;
+    text-align: center;
+}
+
+.card-ring-3d:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-top: 20px solid rgb(var(--color-brand-secondary));
+    border-left: 20px solid rgb(var(--color-brand-secondary));
+    box-sizing: border-box;
+}
+
+.card-ring-3d:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 20px solid rgb(var(--color-brand-secondary));
+    border-right: 20px solid rgb(var(--color-brand-secondary));
+    box-sizing: border-box;
+}
+
+.card-ring-3d .caption {
+    font-size: 25px;
+    height: 50px;
+    width: 100px;
+    line-height: 50px !important;
+    background-color: rgb(var(--color-brand-secondary));
+    color: #ffffff;
+}
+
+.card-ring-3d .text {
+    position: absolute;
+    top: 30px;
+    left: -10px;
+    width: calc(100% + 80px);
+    height: calc(100% - 60px);
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.card-ring-3d .text .caption{
+    position: absolute;
+    top: -1px;
+    left: 0;
+}
+
+.card-ring-3d .text .content {
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    padding: 30px 60px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    background-color: rgb(var(--color-brand-primary));
+}
+
+
+.card-ring-3d:hover {
+    transform: rotateY(-20deg) skewY(3deg);
+}
+.card-ring-3d:hover .text {
+    transform: rotateY(20deg) skewY(-3deg);
+}

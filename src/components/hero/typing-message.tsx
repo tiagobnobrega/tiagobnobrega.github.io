@@ -2,10 +2,14 @@ import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import Typed from "typed.js";
 
 const typedStrings = [
-  "Tiago.",
-  "a full-stack developer.",
-  "curious.",
-  "very disciplined.",
+  "Tiago",
+  "a skilled developer",
+  "curious",
+  "very disciplined",
+  "pragmatic",
+  "always learning",
+  "communicative",
+  "versatile",
 ];
 export default component$(() => {
   useVisibleTask$(({ cleanup }) => {
