@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import "./hero.css";
+import "./bio.css";
 
 export default component$(() => {
   return (

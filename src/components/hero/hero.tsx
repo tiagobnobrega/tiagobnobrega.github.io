@@ -1,12 +1,20 @@
-import { component$, useTask$, useVisibleTask$ } from "@builder.io/qwik";
-import Typed from "typed.js";
-import { isServer } from "@builder.io/qwik/build";
+import { component$ } from "@builder.io/qwik";
 import TypingMessage from "./typing-message";
 import ThreeJsScene from "./ThreeJsScene";
 import Bio from "./bio";
+import Divider from "./divider";
+
+// position: absolute;
+// top: 0;
+// left: 0;
+// width: 100%;
+// overflow: hidden;
+// line-height: 0;
+// transform: rotate(180deg);
+
 export default component$(() => {
   return (
-    <section class="app-section pb-10">
+    <section class="app-section pb-10 relative">
       <div class="content">
         <TypingMessage />
         <div class="flex mt-2 justify-around">
