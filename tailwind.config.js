@@ -6,7 +6,6 @@ module.exports = {
       colors: {
         ds: {
           "page-grad-from": "rgb(var(--color-page-grad-from) / <alpha-value>)",
-          "page-grad-via": "rgb(var(--color-page-grad-via) / <alpha-value>)",
           "page-grad-to": "rgb(var(--color-page-grad-to) / <alpha-value>)",
           primary: "rgb(var(--color-brand-primary) / <alpha-value>)",
           secondary: "rgb(var(--color-brand-secondary) / <alpha-value>)",

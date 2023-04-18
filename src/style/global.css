@@ -1,7 +1,4 @@
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
+@import "animations.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,9 +6,8 @@
 
 @layer base {
     :root{
-        --color-page-grad-from:55 65 81;
-        --color-page-grad-via:17 24 39;
-        --color-page-grad-to:0 0 0 ;
+        --color-page-grad-from:20 30 48;
+        --color-page-grad-to:36 59 85;
         --color-header-bg:255 255 255;
         --color-text-base: 243 244 246;
         --color-text-muted: 199 204 213;
@@ -22,7 +18,6 @@
 
     .space-light{
         --color-page-grad-from:201 214 255;
-        --color-page-grad-via:201 214 255;
         --color-page-grad-to:226 226 226 ;
         --color-header-bg:0 0 0;
 

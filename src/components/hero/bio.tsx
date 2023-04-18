@@ -3,7 +3,7 @@ import "./bio.css";
 
 export default component$(() => {
   return (
-    <div class="card-ring-3d">
+    <div class="card-ring-3d min-h-[500px]">
       <div class="text">
         <div class="content">
           <div class="caption">TL;DR</div>

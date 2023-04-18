@@ -1,0 +1,132 @@
+.avatar-card{
+    --l1-distance:30px;
+    --l2-distance:60px;
+    --l3-distance:90px;
+    --l4-distance:120px;
+    --rotateY:0deg;
+    --rotateX:0deg;
+
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: 3s;
+    animation: float 6s ease-in-out infinite;
+}
+
+.avatar-card:hover,
+.avatar-card.active{
+    transition: 0.6s;
+    animation: float 2s ease-in-out;
+}
+
+.avatar-card > *{
+    transition: 3s;
+    transform-style: preserve-3d;
+}
+
+.avatar-card:hover,
+.avatar-card.active{
+    transform:
+            rotateX(var(--rotateX))
+            rotateY(var(--rotateY));
+}
+
+.avatar-card .faded-title{
+    opacity:0;
+    transition: 0.5s;
+}
+
+.avatar-card:hover .faded-title,
+.avatar-card.active .faded-title{
+    opacity:0.5
+}
+
+.avatar-card .slide-title{
+    transform: translate3d(0,0,var(--l2-distance));
+    top:5px;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.avatar-card:hover .slide-title,
+.avatar-card.active .slide-title{
+    opacity: 1;
+    top:24px;
+}
+
+.avatar-card .circle{
+    height:60%;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right:0;
+    aspect-ratio: 1 / 1;
+    margin:auto;
+}
+
+.avatar-card .circle:after{
+    content: '';
+    position:absolute;
+    width:100%;
+    height:100%;
+    display: block;
+    border-radius: 5000px;
+    background-color: #000;
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.avatar-card .circle:before{
+    content: '';
+    background-color: rgb(var(--color-brand-secondary));
+    position:absolute;
+    width:100%;
+    height:100%;
+    display: block;
+    border-radius: 5000px;
+    z-index: 1;
+}
+
+.avatar-card:hover .circle:before,
+.avatar-card.active .circle:before{
+    transform: translate3d(0, 0, var(--l1-distance));
+}
+
+.avatar-card .avatar{
+    position:absolute; top:0;bottom:0;left:0;right:0;
+    aspect-ratio: 1/1;
+    height:50%;
+    display: block;
+    margin:auto;
+    transform-style: preserve-3d;
+}
+
+.avatar-card .avatar:after{
+    content: '';
+    position:absolute;
+    width:100%;
+    height:100%;
+    display: block;
+    border-radius: 5000px;
+    background-color: #000;
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.avatar-card .avatar img{
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+}
+
+.avatar-card:hover .avatar:after,
+.avatar-card.active .avatar:after{
+    transform: translate3d(0, 0, var(--l1-distance));
+}
+
+.avatar-card:hover .avatar img,
+.avatar-card.active .avatar img{
+    transform: translate3d(0, 0, var(--l3-distance));
+}

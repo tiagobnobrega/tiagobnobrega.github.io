@@ -1,4 +1,4 @@
-.custom-shape-divider-top-1681598281 {
+.skills-shape-divider {
     position: absolute;
     top: 0;
     left: 0;
@@ -7,14 +7,15 @@
     line-height: 0;
 }
 
-.custom-shape-divider-top-1681598281 svg {
+.skills-shape-divider svg {
     position: relative;
     display: block;
-    width: calc(100% + 1.3px);
+    width: calc(100% + 2px);
     height: 93px;
     transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1681598281 .shape-fill {
-    fill: #18202E;
+.skills-shape-divider .shape-fill {
+    fill: url(#skills-divider-shape-gradient) rgb(var(--color-page-grad-from));
 }
+
