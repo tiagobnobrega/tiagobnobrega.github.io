@@ -14,7 +14,8 @@ function getMouseRectPercent(e: MouseEvent): { x: number; y: number } {
   const y = ((clientY - middleY) / rect.height) * 2;
   return { x, y };
 }
-const CARD_ROTATION_MAX = 35;
+const CARD_ROTATION_MAX_X = 20;
+const CARD_ROTATION_MAX_Y = 20;
 
 export default component$(() => {
   const avatarCardStore = useStore<AvatarCardRotationStore>({ x: 0, y: 0 });
@@ -25,11 +26,11 @@ export default component$(() => {
         <TypingMessage />
         <div class="flex mt-2 justify-around">
           <div
-            class="w-[400px] flex justify-center items-center pr-8"
+            class="w-[400px] flex justify-center items-center"
             onmousemove$={(e: MouseEvent) => {
               const { x, y } = getMouseRectPercent(e);
-              avatarCardStore.x = Math.round(x * CARD_ROTATION_MAX);
-              avatarCardStore.y = Math.round(y * CARD_ROTATION_MAX) * -1;
+              avatarCardStore.x = Math.round(x * CARD_ROTATION_MAX_X);
+              avatarCardStore.y = Math.round(y * CARD_ROTATION_MAX_Y) * -1;
             }}
             onmouseleave$={() => {
               avatarCardStore.x = 0;

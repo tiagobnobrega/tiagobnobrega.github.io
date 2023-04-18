@@ -30,7 +30,7 @@ export default component$(({ store }: AvatarCardProps) => {
   return (
     <div
       ref={avatarEl}
-      class={`avatar-card w-72 h-96 bg-ds-primary text-black relative rounded-2xl ${
+      class={`avatar-card w-72 h-96 text-black relative ${
         store.x !== 0 ? "active" : ""
       }`}
       style={`transform: rotateX(${store.y}deg) rotateY(${store.x}deg);`}
