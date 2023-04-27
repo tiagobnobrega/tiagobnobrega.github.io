@@ -9,11 +9,21 @@
         --color-page-grad-from:20 30 48;
         --color-page-grad-to:36 59 85;
         --color-header-bg:255 255 255;
+
+        --color-skin-primary:255 59 85;
+        --color-on-skin-primary:36 59 85;
+
         --color-text-base: 243 244 246;
         --color-text-muted: 199 204 213;
         --color-brand-primary: 255 205 0;
         --color-brand-secondary: 134 51 153;
         --color-brand-tertiary: 0 130 203;
+
+        /*skills*/
+        --skills-gauge-base: transparent;
+        --skills-gauge-grad-from: rgb(var(--color-brand-secondary));
+        --skills-gauge-grad-to: rgb(var(--color-brand-tertiary));
+
     }
 
     .space-light{

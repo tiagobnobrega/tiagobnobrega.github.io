@@ -1,0 +1,11 @@
+.skills-gauge-grad-from{
+    stop-color: var(--skills-gauge-grad-from);
+}
+
+.skills-gauge-grad-to{
+    stop-color: var(--skills-gauge-grad-to);
+}
+
+.skill-gauge-base{
+    stroke: rgb(var(--skills-gauge-base));
+}

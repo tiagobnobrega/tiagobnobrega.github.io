@@ -7,7 +7,7 @@ export default component$(() => {
       document:onScroll$={() => {
         isScrollAtTop.value = window.scrollY <= 20;
       }}
-      class="w-full h-20 flex justify-center fixed"
+      class="w-full h-20 flex justify-center fixed z-40"
     >
       <div class="w-full max-w-screen-2xl z-10 px-8">
         content
