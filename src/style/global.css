@@ -20,9 +20,11 @@
         --color-brand-tertiary: 0 130 203;
 
         /*skills*/
-        --skills-gauge-base: transparent;
-        --skills-gauge-grad-from: rgb(var(--color-brand-secondary));
-        --skills-gauge-grad-to: rgb(var(--color-brand-tertiary));
+        --skills-gauge-base: rgba(var(--color-text-muted) / 0.3);
+        --skills-gauge-grad-from: rgb(var(--color-brand-primary));
+        --skills-gauge-grad-to: rgb(var(--color-brand-secondary));
+
+        --skills-card-bg: rgb(var(--color-page-grad-from))
 
     }
 

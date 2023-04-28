@@ -21,6 +21,7 @@ module.exports = {
       backgroundColor: {
         ds: {
           header: "rgb(var(--color-header-bg) / <alpha-value>)",
+          "skills-card": "rgb(var(--skills-card-bg) / <alpha-value>)",
         },
       },
     },

@@ -7,5 +7,5 @@
 }
 
 .skill-gauge-base{
-    stroke: rgb(var(--skills-gauge-base));
+    stroke: var(--skills-gauge-base);
 }

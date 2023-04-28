@@ -23,8 +23,8 @@ export default component$(
         <svg {...rest} height={radius * 2} width={radius * 2}>
           <defs>
             <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="15%" class="skills-gauge-grad-from" />
-              <stop offset="85%" class="skills-gauge-grad-to" />
+              <stop offset="15%" class="skills-gauge-grad-to" />
+              <stop offset="85%" class="skills-gauge-grad-from" />
             </linearGradient>
           </defs>
           <circle
